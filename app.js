@@ -2,7 +2,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var logger = require('morgan')
+var multer = require('multer');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,6 +17,8 @@ mongoose.connect('mongodb://sudheermaguluri:M.s9640616462@ds125469.mlab.com:2546
   else
     console.log("not")
 });
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://sudheermaguluri:M.s9640616462@ds125469.mlab.com:25469/mydb")
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
